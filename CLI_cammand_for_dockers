@@ -1,0 +1,133 @@
+PS C:\Users\DELL> ssh
+PS C:\Users\DELL> cd downloads
+PS C:\Users\DELL\downloads> ls login_info.pem
+PS C:\Users\DELL\downloads> ssh -i "login_info.pem" ubuntu@ec2-54-91-17-226.compute-1.amazonaws.com
+#connect to our ec2 instance using public ip to private ip
+
+ubuntu@ip-172-31-25-48:~$ sudo apt-get update
+#update the new package into ubentu
+
+ubuntu@ip-172-31-25-48:~$ sudo apt-get install docker.io
+  #install docker this cammand we have to run 
+  sockets
+  container
+  engin
+  image
+buntu@ip-172-31-25-48:~$ sudo systemctl status docker
+#cheacks the status of dockers it always in running status
+
+ubuntu@ip-172-31-25-48:~$ docker
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  checkpoint  Manage checkpoints
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  config      Manage Swarm configs
+  node        Manage Swarm nodes
+  secret      Manage Swarm secrets
+  service     Manage Swarm services
+  stack       Manage Swarm stacks
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "/home/ubuntu/.docker")
+  -c, --context string     Name of the context to use to connect to
+                           the daemon (overrides DOCKER_HOST env var
+                           and default context set with "docker
+                           context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA
+                           (default "/home/ubuntu/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "/home/ubuntu/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "/home/ubuntu/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+ubuntu@ip-172-31-25-48:~$ docker ps
+#giving error of permission so give permission
+ubuntu@ip-172-31-25-48:~$ sudo usermod -aG docker $USER
+#giving the permission to user
+ubuntu@ip-172-31-25-48:~$ newgrp docker
+#refresh it 
+ubuntu@ip-172-31-25-48:~$ docker ps
+then its show the table of imagde in docker
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+like this 
+ubuntu@ip-172-31-25-48:~$ docker login
+#using usernamde and password or tockens you can login to docker account 
+ubuntu@ip-172-31-25-48:~$ docker pull hello-world
+  #downloade the hello-world file from docker
+  ubuntu@ip-172-31-25-48:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    d2c94e258dcb   20 months ago   13.3kB
+ubuntu@ip-172-31-25-48:~$ docker run hello-world
+  #its create the container using docker img 
+
+  
