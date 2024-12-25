@@ -128,6 +128,35 @@ ubuntu@ip-172-31-25-48:~$ docker pull hello-world
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 hello-world   latest    d2c94e258dcb   20 months ago   13.3kB
 ubuntu@ip-172-31-25-48:~$ docker run hello-world
-  #its create the container using docker img 
+  #its create the container using docker img
+ubuntu@ip-172-31-25-48:~$ mkdir projects
+ubuntu@ip-172-31-25-48:~$ cd projects
+ubuntu@ip-172-31-25-48:~/projects$ git clone https://github.com/LondheShubham153/simple-java-docker.git
+#create clone of repos in ubuntu 
+
+ubuntu@ip-172-31-25-48:~/projects$ ls
+simple-java-docker
+ubuntu@ip-172-31-25-48:~/projects$ cd simple-java-docker
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ ls
+Dockerfile  README.md  src
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ rm -v Dockerfile
+removed 'Dockerfile'
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ ls
+README.md  src
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ vim Dockerfile
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ ls
+Dockerfile  README.md  src
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ docker build -t java-app .
+
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ docker images
+REPOSITORY    TAG             IMAGE ID       CREATED          SIZE
+java-app      latest          397dfd7edcd0   25 seconds ago   326MB
+hello-world   latest          d2c94e258dcb   20 months ago    13.3kB
+openjdk       17-jdk-alpine   264c9bdce361   3 years ago      326MB
+
+ubuntu@ip-172-31-25-48:~/projects/simple-java-docker$ docker run java-app
+Hello, Docker! Current date: Wed Dec 25 18:39:08 GMT 2024
+
+
 
   
