@@ -1,0 +1,90 @@
+Docker networking is a crucial aspect of container management, enabling containers to communicate with each other and with the outside world
+ containers can communicate with each other using container IP addresses or container names
+You can create custom, user-defined networks, and connect multiple containers to the same network
+
+Types of Docker Networks
+
+Bridge:
+
+Default network driver for containers.
+Containers on the same bridge network can communicate with each other.
+Isolated from the host network.
+Example: docker run --network bridge
+
+Host:
+
+Uses the host's network stack.
+Containers share the host’s IP address and port space.
+Best for performance, but can lead to port conflicts.
+Example: docker run --network host
+
+
+None:
+
+Disables all networking for the container.
+Useful for specific use cases where no network is required.
+Example: docker run --network none
+
+
+Overlay:
+
+Used for multi-host networking.
+Allows containers running on different Docker hosts (using Docker Swarm) to communicate.
+Requires a key-value store like etcd, Consul, or Docker’s internal store.
+Example: docker network create -d overlay my_overlay_network
+
+Macvlan:
+
+Assigns a MAC address to each container, making it appear as a physical device on the network.
+Useful for workloads that require direct access to physical networks.
+Example: docker network create -d macvlan my_macvlan_network
+
+
+Docker Networking Commands
+
+
+Listing Networks:
+
+To see all the networks on your Docker host
+#docker network ls
+
+
+Inspecting a Network:
+
+To get detailed information about a specific network
+#docker network inspect <network_name>
+
+Creating a Network:
+
+To create a custom network
+#docker network create <network_name>
+
+Removing a Network:
+
+Remove a network (must not be in use)
+#docker network rm <network_name>
+
+
+Connecting a Container to a Network:
+
+To connect an existing container to a specific network
+#docker network connect <network_name> <container_name>
+
+Disconnecting a Container from a Network:
+
+To remove a container from a network
+#docker network disconnect <network_name> <container_name>
+
+
+
+
+
+
+
+
+Docker networking provides a powerful and flexible way to manage how containers communicate with each other and with external resources. 
+By understanding the different network types and their configurations, you can effectively design and implement networking for your containerized applications.
+
+
+
+
